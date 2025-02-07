@@ -4,6 +4,7 @@ package com.example.userloginapp
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.userloginapp.databinding.ActivityLoginBinding
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
             userViewModel.getUserByUsername(username) { user ->
                 if (user != null && user.password == password) {
                     // Successful login, pass user ID to MainActivity
+                    Toast.makeText(this,"Login Successful", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java).apply {
                         putExtra("USER_ID", user.id)
                     }

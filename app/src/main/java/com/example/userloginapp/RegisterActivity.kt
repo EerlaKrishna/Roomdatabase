@@ -2,6 +2,7 @@ package com.example.userloginapp
 
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.userloginapp.databinding.ActivityRegisterBinding
@@ -24,6 +25,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.etPassword.text.toString()
             val user = User(id = 0, username = username, password = password)
             userViewModel.insert(user)
+            Toast.makeText(this,"Register Successful", Toast.LENGTH_SHORT).show()
             finish() // Go back to login screen
         }
     }

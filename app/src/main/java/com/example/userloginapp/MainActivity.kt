@@ -1,6 +1,7 @@
 package com.example.userloginapp
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             val description = binding.etTaskDescription.text.toString()
             val task = Task(title = title, description = description)
             taskViewModel.insert(task)
+            Toast.makeText(this,"Task added successful", Toast.LENGTH_SHORT).show()
             binding.etTaskTitle.text.clear()
             binding.etTaskDescription.text.clear()
         }
@@ -61,6 +63,8 @@ class MainActivity : AppCompatActivity() {
                 val updatedDescription = dialogBinding.etTaskDescription.text.toString()
                 val updatedTask = task.copy(title = updatedTitle, description = updatedDescription)
                 taskViewModel.update(updatedTask)
+                Toast.makeText(this,"Update Successful", Toast.LENGTH_SHORT).show()
+
             }
             .setNegativeButton("Cancel", null)
             .create()
